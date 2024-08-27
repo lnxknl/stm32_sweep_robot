@@ -55,12 +55,12 @@ void vDROPTask(void *p)
 * Output         : None
 * Return         : None
 *******************************************************************************/
-void vFallFlagCheck(void)
+void vFallFlagCheck(void)// @NOTE  @#****
 {
 
 
     //¸ù¾Ý²îÖµÅÐ¶ÏÐü¿Õ
-     if(usGetDropLeftBackAD()<g_FALL_MIN&&usGetDropLeftBackAD()<g_FALL_DIFFERENT_THRESHOLD)
+     if(usGetDropLeftBackAD()<g_FALL_MIN&&usGetDropLeftBackAD()<g_FALL_DIFFERENT_THRESHOLD)// @NOTE 
     {
          
         tDropcheck.bBackLFall=true;

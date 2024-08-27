@@ -265,7 +265,7 @@ void vUltrasonic_GPIO_config(void)
 * Output         : None
 * Return         : None
 *******************************************************************************/
-void vUltrasonic_Emit(void)
+void vUltrasonic_Emit(void)// @NOTE 
 {
 	//发送超声波
 	vTaskSuspendAll();  //挂起任务调度器 

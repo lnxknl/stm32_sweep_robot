@@ -37,7 +37,7 @@ extern uint16_t g_usDROP_DIFFERENT_AD[4];  //地感前后差值
 #define g_FALL_DIFFERENT_THRESHOLD (120) //前后差值
 
 #define FrontLFallAD    g_usInChipAdcChannelAverageValue[adcDropFrontL]
-#define BackLFallAD     g_usInChipAdcChannelAverageValue[adcDropBackL]
+#define BackLFallAD     g_usInChipAdcChannelAverageValue[adcDropBackL]// @NOTE 
 #define FrontRFallAD    g_usInChipAdcChannelAverageValue[adcDropFrontR]
 #define BackRFallAD     g_usInChipAdcChannelAverageValue[adcDropBackR]
 
@@ -48,7 +48,7 @@ extern uint16_t g_usDROP_DIFFERENT_AD[4];  //地感前后差值
 #define usGetDropRightFrontAD()       g_usDROP_AD[adFR]
 #define usGetDropRightBackAD()        g_usDROP_AD[adBR]
 #define usGetDropLeftFrontAD()        g_usDROP_AD[adFL]
-#define usGetDropLeftBackAD()         g_usDROP_AD[adBL]
+#define usGetDropLeftBackAD()         g_usDROP_AD[adBL]// @NOTE 
 
 #define bGetDropFrontL()    tDropcheck.bFrontLFall;
 #define bGetDropFrontR()    tDropcheck.bFrontRFall;

@@ -14,7 +14,7 @@
 //#define DROPHONGCHUAN 
 
 #define  LF_DropADValue     g_usInChipAdcChannelAverageValue[adcDropFrontL]
-#define  RF_DropADValue     g_usInChipAdcChannelAverageValue[adcDropFrontR]
+#define  RF_DropADValue     g_usInChipAdcChannelAverageValue[adcDropFrontR]// @NOTE 
 #define  LB_DropADValue     g_usInChipAdcChannelAverageValue[adcDropBackL]
 #define  RB_DropADValue     g_usInChipAdcChannelAverageValue[adcDropBackR]
 

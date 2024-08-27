@@ -16,7 +16,7 @@ static bool bGarbageBoxState=true;//垃圾盒状态 true 表示合上 false 取出
   * @param  无
   * @retval 无
   */
-void vGarbage_box_check_task(void *pvParameters)
+void vGarbage_box_check_task(void *pvParameters)// @NOTE 
 {
 	vGarbage_box_check_Init();
 
@@ -24,7 +24,7 @@ void vGarbage_box_check_task(void *pvParameters)
 	{
 		
 		vGarbageBoxChecking();
-        g_tRobotState.Robotstate.unionAbnormal.AbnIden.DustBoxAbn=!isGarbageBoxClose();//上报尘盒状态
+        g_tRobotState.Robotstate.unionAbnormal.AbnIden.DustBoxAbn=!isGarbageBoxClose();//上报尘盒状态// @NOTE  this relatived with control direction
 		delay_ms(100);
 	}
 	
@@ -49,7 +49,7 @@ bool isGarbageBoxClose(void)
   */
 void vGarbageBoxChecking(void)
 {
-   if(GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_13))//垃圾盒检测
+   if(GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_13))//垃圾盒检测// @NOTE 
     {
         //printf("垃圾盒被取出了\r\n");
         bGarbageBoxState = false;

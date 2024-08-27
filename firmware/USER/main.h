@@ -70,7 +70,7 @@ __packed typedef struct{
     __packed union 
     {
         u32 AbnormalSta;
-        __packed struct 
+        __packed struct // @NOTE 
         {
             u32 BatteryAbn    : 1;//电池低电量异常
             u32 LeftWheelAbn  : 1;//左轮悬空异常
@@ -87,7 +87,7 @@ __packed typedef struct{
         }AbnIden;
     }unionAbnormal;
 
-}RobotState_t;
+}RobotState_t;// @NOTE 
 
 /***************通信协议用户数据结构**************/                  
 __packed typedef struct{    

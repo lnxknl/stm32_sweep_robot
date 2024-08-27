@@ -38,7 +38,7 @@ void vPrintf_ALL_wheel_Data(void )
     
     printf("Left RealSpeed     %d mm/s\r\n",g_tLeftWheel.RealSpeed);
     printf("Right RealSpeed    %d mm/s\r\n",g_tRightWheel.RealSpeed);
-    printf("g_FanRotationRate  %d r/s \r\n\r\n",uiGetFanRotationRate());
+    printf("g_FanRotationRate  %d r/s \r\n\r\n",uiGetFanRotationRate());// @NOTE 
     
     printf("0    %d \r\n", g_tRightWheel.usEncodeBuffer[0]);
     printf("1    %d \r\n", g_tRightWheel.usEncodeBuffer[1]);

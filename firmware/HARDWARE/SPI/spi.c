@@ -18,7 +18,7 @@
   * @param  RegisterAddress：从设备寄存器地址（8位）  Data 写入的数据（8位）
   * @retval 无
   */
-void BMI160_WriteOneByteToSlave(u8 RegisterAddress,u8 Data)
+void BMI160_WriteOneByteToSlave(u8 RegisterAddress,u8 Data)// @NOTE 
 {
 	
 	SPI_BMI160_CS_LOW();//片选BMI160
@@ -34,7 +34,7 @@ void BMI160_WriteOneByteToSlave(u8 RegisterAddress,u8 Data)
   * @param  RegisterAddress：从设备寄存器地址
   * @retval ret 返回该地址的一字节数据
   */
-u8 BMI160_ReadOneByteFromSlave(u8 RegisterAddress)
+u8 BMI160_ReadOneByteFromSlave(u8 RegisterAddress)// @NOTE 
 {
 
 	u8 ret;

@@ -113,7 +113,7 @@ void vAlongEdge(void)
            //直接开始沿边
             DEBUG("沿");
             g_sExpect_speed=AlongEdgeSpeed;//赋值沿边速度
-            ucRouteAdjustByAlongEdgeDistance(ALONG_EDGE_DISTANCE(),20,g_sExpect_speed);//沿边
+            ucRouteAdjustByAlongEdgeDistance(ALONG_EDGE_DISTANCE(),20,g_sExpect_speed);//沿边// @NOTE 
         }
         else//与障碍物距离间隔大于5CM 继续旋转
         {
@@ -220,7 +220,7 @@ void vBehaviorRetreat(void)
 * Output         : None 
 * Return         : None
 *******************************************************************************/
-void vBehaviorRetreatL(void)
+void vBehaviorRetreatL(void)// @NOTE 
 {
     static bool IsFirstIn=true;//是否第一次进入
     static s16 TargeAngle;//目标角度
@@ -238,14 +238,14 @@ void vBehaviorRetreatL(void)
     }
 
     /*检测是否还在碰撞 或者掉落*/
-    if(g_tRobotState.Robotstate.unionAbnormal.AbnIden.RightCollisionAbn ||\
+    if(g_tRobotState.Robotstate.unionAbnormal.AbnIden.RightCollisionAbn ||\// @NOTE 
        g_tRobotState.Robotstate.unionAbnormal.AbnIden.LeftCollisionAbn  ||\
        g_tRobotState.Robotstate.unionAbnormal.AbnIden.DropLBAbn||\
        g_tRobotState.Robotstate.unionAbnormal.AbnIden.DropLFAbn||\
        g_tRobotState.Robotstate.unionAbnormal.AbnIden.DropRBAbn||\
        g_tRobotState.Robotstate.unionAbnormal.AbnIden.DropRFAbn)
     {
-        g_sExpect_speed=RETREAT_SPEED;//赋值 后退速度
+        g_sExpect_speed=RETREAT_SPEED;//赋值 后退速度// @NOTE 
         ucRoute_Adjust(CURRENT_ANGLE,g_sExpect_Angle,g_sExpect_speed);//后退
         
     }else /*后退时间到了 要转弯了*/
@@ -513,7 +513,7 @@ void vBehaviorManageTask(void *p)
                 vBehaviorForward();
                 break;
             case  zRetreatL:               //后退后左转
-                vBehaviorRetreatL();
+                vBehaviorRetreatL();// @NOTE 
                 break;
             case  zRetreatR:               //后退后右转
                 vBehaviorRetreatR();
@@ -1019,7 +1019,7 @@ void vBehaviorManageTask(void *p)
                 vBehaviorForward();
                 break;
             case  zRetreatL:               //后退后左转
-                vBehaviorRetreatL();
+                vBehaviorRetreatL();// @NOTE 
                 break;
             case  zRetreatR:               //后退后右转
                 vBehaviorRetreatR();

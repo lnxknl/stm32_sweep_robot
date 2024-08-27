@@ -30,7 +30,7 @@ void vGyroscopse_task(void *pvParameters)
 	while(1)
 	{
 			
-		if(eGyro_State == GYRO_INIT )//初始化BMI160
+		if(eGyro_State == GYRO_INIT )//初始化BMI160// @NOTE  @#**** init example
 		{
 			BMI160_Init();
 		}
@@ -90,7 +90,7 @@ void BMI160_SPI_GetACC(void)
 		Angle_y = atan2(ACC_Y,ACC_Z)*180/3.14159;
 		
 		/*更新倾斜角*/
-		SetAccValue_X(Angle_x);
+		SetAccValue_X(Angle_x);// @NOTE 
 		SetAccValue_Y(Angle_y);
 }
 
@@ -183,7 +183,7 @@ void BMI160_SPI_GetOffset(void)
 		gyr_z = (signed short)z;
 
 		//计算零飘
-		vBMI160CalcOffset_Gyro(gyr_x,gyr_y,gyr_z);
+		vBMI160CalcOffset_Gyro(gyr_x,gyr_y,gyr_z);// @NOTE 
 
 }
 
@@ -267,7 +267,7 @@ void vBMI160CalcOffset_Gyro(float data_add_x , float data_add_y , float data_add
                 tGyro_Offset_temp.z = (OffsetTemp[0][2]+OffsetTemp[1][2]+OffsetTemp[2][2])/3;
                 //赋值给全局变量，用于陀螺仪减零飘所用
 				tGyro_Offset.x = tGyro_Offset_temp.x;
-                tGyro_Offset.y = tGyro_Offset_temp.y;
+                tGyro_Offset.y = tGyro_Offset_temp.y;// @NOTE 
                 tGyro_Offset.z = tGyro_Offset_temp.z;
                 vBmi160_InitAttAngle();     //初始化姿态角
                 #ifdef UseTempertureCompensation
@@ -385,7 +385,7 @@ u8 ucBmi160_Shake_Reset(float fnewdata,u8 ucResetthreshold)
   * @param  无
   * @retval 无
   */
-void BMI160_Init(void)
+void BMI160_Init(void)// @NOTE  BMI160 gyroscope sensor
 {
 	BMI160_WriteOneByteToSlave(0x7e,0xb6);//重置
 	delay_ms(500);
@@ -405,7 +405,7 @@ void BMI160_Init(void)
 
 	
 	DEBUG("BMI160 INIT SUCCESS!!!\r\n");
-	eGyro_State = GYRO_GETOFFSET;
+	eGyro_State = GYRO_GETOFFSET;// @NOTE 
 	
 }
 

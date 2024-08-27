@@ -17,7 +17,7 @@
 *******************************************************************************/
 void vTaskCreateFunction(void)
 {   
-    xTaskCreate( vSystemHardwareWorkTask, "SystemHardwareWorkTask",  310, 0, 1,0);//系统硬件工作任务 优先级1
+    xTaskCreate( vSystemHardwareWorkTask, "SystemHardwareWorkTask",  310, 0, 1,0);//系统硬件工作任务 优先级1// @NOTE 
     xTaskCreate( vADCDataProcessingTask,  "vADCDataProcessingTask",  310, 0, 1,&HandleADCDataProcessing);//adc数据处理任务优先级1
     xTaskCreate( vGarbage_box_check_task, "vGarbage_box_check_task", 310, 0, 1,0);//垃圾盒检测任务 优先级1
     xTaskCreate( vGyroscopse_task,        "vGyroscopse_task",        310, 0, 2,0);//陀螺仪任务     优先级2
@@ -39,7 +39,7 @@ void vTaskCreateFunction(void)
 * Output         : None
 * Return         : None
 *******************************************************************************/
-void vSystemHardwareWorkTask(void *p)
+void vSystemHardwareWorkTask(void *p)// @NOTE 
 {   
     while(1)
     {

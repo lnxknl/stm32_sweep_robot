@@ -49,7 +49,7 @@ void GetDropAdValue(void)
         
         vTaskDelay(1);
         Drop_AD_Value[adFL]+=abs(LF_DropADValue-2048)/10;//完全悬空AD值为2048 离地越近越趋向于两边，（LF_DropADValue-2048）取绝对值得到0-2048范围的AD值（数值越大离地越近）
-        Drop_AD_Value[adFR]+=abs(RF_DropADValue-2048)/10;
+        Drop_AD_Value[adFR]+=abs(RF_DropADValue-2048)/10;// @NOTE 
         Drop_AD_Value[adBL]+=abs(LB_DropADValue-2048)/10;
         Drop_AD_Value[adBR]+=abs(RB_DropADValue-2048)/10;
     }
@@ -61,7 +61,7 @@ void GetDropAdValue(void)
     tDropcheck.bAnyoneFall = (tDropcheck.bFrontLFall | tDropcheck.bFrontRFall | tDropcheck.bBackLFall | tDropcheck.bBackRFall);//任意一个感应到掉落时为1
 
     //全局变量设置
-    usSetDropRightFrontAD(  Drop_AD_Value[adFR] ) ;      
+    usSetDropRightFrontAD(  Drop_AD_Value[adFR] ) ;      // @NOTE 
     usSetDropRightBackAD(  Drop_AD_Value[adBR] ) ;      
     usSetDropLeftFrontAD(  Drop_AD_Value[adFL] ) ;     
     usSetDropLeftBackAD(  Drop_AD_Value[adBL] ) ;
@@ -106,7 +106,7 @@ void vDropCheckTask(void *p)
 
 
 //    //根据离地距离与前后ad差值判断悬空
-//     if(usGetDropLeftBackAD()>g_DROP_THRESHOLD&& g_usDROP_DIFFERENT_AD[adBL]<g_FALL_DIFFERENT_THRESHOLD)
+//     if(usGetDropLeftBackAD()>g_DROP_THRESHOLD&& g_usDROP_DIFFERENT_AD[adBL]<g_FALL_DIFFERENT_THRESHOLD)// @NOTE 
 //    {
 //         
 //        tDropcheck.bBackLFall=true;
@@ -177,7 +177,7 @@ void vSetDropADAverage(void)
         DropAD[adBL][nNum] = abs(LB_DropADValue - DROP_CLIFF_AD);
         DropAD[adBR][nNum] = abs(RB_DropADValue - DROP_CLIFF_AD);
         DropAD[adFL][nNum] = abs(LF_DropADValue - DROP_CLIFF_AD);
-        DropAD[adFR][nNum] = abs(RF_DropADValue - DROP_CLIFF_AD);
+        DropAD[adFR][nNum] = abs(RF_DropADValue - DROP_CLIFF_AD);// @NOTE 
         
     }
     for(nNum=0; nNum<8; nNum++)
@@ -190,7 +190,7 @@ void vSetDropADAverage(void)
     }
     
     //获取中间值
-    g_usDROP_AD[adBL] = usGetDropMiddleAD(DropAD[adBL], 8, 0, 2100);
+    g_usDROP_AD[adBL] = usGetDropMiddleAD(DropAD[adBL], 8, 0, 2100);// @NOTE 
     g_usDROP_AD[adBR] = usGetDropMiddleAD(DropAD[adBR], 8, 0, 2100);
     g_usDROP_AD[adFL] = usGetDropMiddleAD(DropAD[adFL], 8, 0, 2100);
     g_usDROP_AD[adFR] = usGetDropMiddleAD(DropAD[adFR], 8, 0, 2100);

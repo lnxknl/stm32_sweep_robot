@@ -58,9 +58,9 @@ uint16_t usGetClashDistance(void)
     while(1)
     {
         vUltrasonic_Emit();
-        vTaskDelay(2); //延时防止读到上次的值或空值
+        vTaskDelay(2); //延时防止读到上次的值或空值// @NOTE 
         vUltransonicCaculate(40); //超声波处理
-        vTaskDelayUntil(&xULTrasonicTime, 50 );//绝对延时50ms
+        vTaskDelayUntil(&xULTrasonicTime, 50 );//绝对延时50ms// @NOTE 
 //      printf("超声波距离 ：%d\r\n",usGetClashDistance()); 
     
        
@@ -108,11 +108,11 @@ void vUltransonicCaculate(int iCrashDis)
 	if( tULTime.bClashflag )//完成接收
     {  
         tULTime.bClashflag  = false;
-        g_fSoundDistance=fUltrasonic_Distance_Caculate(tULTime.us_interval);  //原始距离设置
+        g_fSoundDistance=fUltrasonic_Distance_Caculate(tULTime.us_interval);  //原始距离设置// @NOTE 
         //出错
         if(g_fSoundDistance>g_usMaxClashDistance||g_fSoundDistance<1)
         {
-          tClash.bClashFlag=false;
+          tClash.bClashFlag=false;// @NOTE 
           tClash.usClashDistance=999;
           return;
         }

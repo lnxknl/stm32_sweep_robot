@@ -10,8 +10,8 @@
 
 TaskHandle_t HandleADCDataProcessing = NULL;//adc数据处理任务句柄
 
-uint16_t g_usInChipAdcChannelAverageValue[ADC_CHANNEL_NUM]; //ADC 各通道平均值   
-uint16_t g_usAnalogSwitch[adcAnalog_Switch_Num];            //模拟开关ADC采样值
+uint16_t g_usInChipAdcChannelAverageValue[ADC_CHANNEL_NUM]; //ADC 各通道平均值   // @NOTE 
+uint16_t g_usAnalogSwitch[adcAnalog_Switch_Num];            //模拟开关ADC采样值// @NOTE , abc batery
 
 /*******************************************************************************
 * Function Name  : vADCDataProcessingTask
@@ -20,7 +20,7 @@ uint16_t g_usAnalogSwitch[adcAnalog_Switch_Num];            //模拟开关ADC采样值
 * Output         : None
 * Return         : None
 *******************************************************************************/
-void vADCDataProcessingTask(void *p)
+void vADCDataProcessingTask(void *p)// @NOTE 
 {
     ADC_SoftwareStartConvCmd(ADC1, ENABLE);	  //使能指定的ADC1的软件转换启动功能
     while(1)
@@ -84,11 +84,11 @@ void vGetADCChannelAverageNumber( uint16_t *pusBuffer, uint16_t *pusSwitch )
     /******************计算每个ADC通道平均值******************/
     for( i=0;i<ADC_CHANNEL_NUM;i++ )        
     {
-        for( j=1;j<ADC_TRANSFORM_NUM-1;j++ )//去掉一个最大值和最小值
+        for( j=1;j<ADC_TRANSFORM_NUM-1;j++ )//去掉一个最大值和最小值// @NOTE 
         {
             uiSum[i] += AxtractData[i][j];
         }         
-        pusBuffer[i] = uiSum[i]/(ADC_TRANSFORM_NUM-2);
+        pusBuffer[i] = uiSum[i]/(ADC_TRANSFORM_NUM-2);// @NOTE 
         
     }
 

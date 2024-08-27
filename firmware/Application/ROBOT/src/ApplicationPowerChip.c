@@ -35,7 +35,7 @@ void vPowerChipTask(void *p)
     {       
         vBatteryLevelUpdate();//电池电量数据更新
         vRechargeStandUpdate();//充电座信息更新
-        g_tRobotState.Robotstate.ucRemainBattery = ucGetBatteryLevel();//上传电量
+        g_tRobotState.Robotstate.ucRemainBattery = ucGetBatteryLevel();//上传电量// @NOTE 
         g_tRobotState.Robotstate.unionAbnormal.AbnIden.InRechargeStand=isInRechargeStand();//上传是否在充电座上
         if(isInRechargeStand() && isNeedCharge())//在充电座上且需要充电
         {
@@ -126,7 +126,7 @@ void SetNeedCharge(bool loc_NeedCharge)
 * Output         : None
 * Return         : None
 *******************************************************************************/
-void vBatteryLevelUpdate(void)
+void vBatteryLevelUpdate(void)// @NOTE 
 {
     /* （当前电量adc值 - 最小电量adc值）*100/ 电量adc范围  */
     ucBattery_Level=\
@@ -154,7 +154,7 @@ void vRechargeStandUpdate(void)
 * Output         : None
 * Return         : None
 *******************************************************************************/
-void vBq24773_Set_MAX_Charge_Voltage(eMax_Charge_Voltage loc_ChargrVoltage)
+void vBq24773_Set_MAX_Charge_Voltage(eMax_Charge_Voltage loc_ChargrVoltage)// @NOTE 
 {
     /*bit |  function
       0   |  Adds 256mV of charger voltage.
@@ -182,7 +182,7 @@ void vBq24773_Set_MAX_Charge_Voltage(eMax_Charge_Voltage loc_ChargrVoltage)
         case Battery1S_4_2v://实际电压4096+128=4.224v
             ChargeVol_H=(u8)(1<<4);
             ChargeVol_L=(u8)(1<<7);
-            vBp24773_WriteOneByte(MAX_CHARGE_VOLTAGE_L,ChargeVol_L);
+            vBp24773_WriteOneByte(MAX_CHARGE_VOLTAGE_L,ChargeVol_L);// @NOTE  @#*** battery manage chip
             vBp24773_WriteOneByte(MAX_CHARGE_VOLTAGE_H,ChargeVol_H);
             break;
         case Battery2S_8_4v://实际电压8192+256=8.448v
@@ -334,7 +334,7 @@ u8 ucBp24773_ReadOneByte(u8 ReadAddr)
 * Output         : None
 * Return         : None
 *******************************************************************************/
-void vBp24773_WriteOneByte(u8 WriteAddr,u8 DataToWrite)
+void vBp24773_WriteOneByte(u8 WriteAddr,u8 DataToWrite)// @NOTE iic 
 {				   	  	    																 
     IIC_Start();  
 

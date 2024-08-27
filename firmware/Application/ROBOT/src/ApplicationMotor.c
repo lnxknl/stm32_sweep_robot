@@ -83,7 +83,7 @@ __inline u16 usSpeed2Cycle(s16 loc_Speed)
 
 /*******************************************************************************
 * Function Name  : vMotionWheel(void)
-* Description    : 将轮子的实际转速靠近期望转速 使用到全局结构体 LeftWheel RightWheel
+* Description    : 将轮子的实际转速靠近期望转速 使用到全局结构体 LeftWheel RightWheel// @NOTE , @#*** pid
 * Input          : None
 * Output         : None
 * Return         : None
@@ -771,7 +771,7 @@ int16_t usGetWheelSpeed( uint16_t usBuffer[], WheelDirection_e Direction )
 * Output         : None
 * Return         : None
 *******************************************************************************/
-void vMotorSpeedUpdateTask(void *p)
+void vMotorSpeedUpdateTask(void *p)// @NOTE 
 {
     while(1)
     {
@@ -839,7 +839,7 @@ void vSoftSpeedAdvanceTask(void *p)
 *******************************************************************************/
 u32 uiGetFanRotationRate(void)
 {
-    return g_FanRotationRate;
+    return g_FanRotationRate;// @NOTE 
 }
 /*******************************************************************************
 * Function Name  : vSetFanSpeed(void)
